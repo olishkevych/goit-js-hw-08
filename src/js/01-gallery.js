@@ -7,10 +7,9 @@ import { galleryItems } from './gallery-items';
 const galleryListEl = document.querySelector('.gallery');
 const galleryItemsMarkup = createGalleryItemsMarkup(galleryItems);
 
-galleryListEl.addEventListener('click', onImageClick);
 galleryListEl.insertAdjacentHTML('beforeend', galleryItemsMarkup);
 
-let lightbox = new SimpleLightbox('.gallery a', {
+let lightbox = new SimpleLightbox('.gallery .gallery__link', {
   captionsData: 'alt',
   captionDelay: 250,
 });
@@ -30,8 +29,4 @@ function createGalleryItemsMarkup(items) {
       `;
     })
     .join('');
-}
-
-function onImageClick(event) {
-  lightbox.open();
 }
